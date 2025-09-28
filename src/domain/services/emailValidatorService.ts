@@ -10,11 +10,11 @@ export class emailValidatorService {
 
         // faites un choix
         // est ce que vous préférez ?
-         const domain0 = email.getValue().split('@')[1];
+         const domain0 = email.getValue().split('@')[1]; // rappelez vous la loi de Demeter (ou principe de moindre connaissance)
          // ou bien
          const domain = email.getDomain();   // le calcul de la partie du DNS domain est fait dans la classe Email
 
 
-        return this.allowedDomains.has(domain);
+        return this.allowedDomains.has(domain0);
     }
 }

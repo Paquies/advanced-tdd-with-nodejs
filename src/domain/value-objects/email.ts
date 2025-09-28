@@ -16,8 +16,7 @@ export class Email extends ValueObject<string> {
   }
 
   public static isValid(email: string): boolean {
-    return typeof email === 'string' && 
-           email.length > 0 && 
+    return email.length > 0 &&
            email.length <= 254 && 
            !Email.hasConsecutiveDots(email) &&
            Email.EMAIL_REGEX.test(email);
@@ -31,7 +30,7 @@ export class Email extends ValueObject<string> {
     return this.value.split('@')[1];
   }
 
-  public getLocalPart(): string {
+  public getUserPart(): string {
     return this.value.split('@')[0];
   }
 }

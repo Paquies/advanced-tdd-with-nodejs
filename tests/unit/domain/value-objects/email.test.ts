@@ -48,20 +48,6 @@ describe('Email Value Object', () => {
     });
   });
 
-  describe('getDomain', () => {
-    it('should return the domain part of email', () => {
-      const email = new Email('test@example.com');
-      expect(email.getDomain()).toBe('example.com');
-    });
-  });
-
-  describe('getLocalPart', () => {
-    it('should return the local part of email', () => {
-      const email = new Email('test@example.com');
-      expect(email.getLocalPart()).toBe('test');
-    });
-  });
-
   describe('equals', () => {
     it('should return true for equal emails', () => {
       const email1 = new Email('test@example.com');
@@ -75,4 +61,7 @@ describe('Email Value Object', () => {
       expect(email1.equals(email2)).toBe(false);
     });
   });
+
+  // TODO: Exercise 3.c - Write tests for getDomain() and getLocalPart()
+  // Remove the TODO comment and add your tests below
 });

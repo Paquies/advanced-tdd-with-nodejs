@@ -1,7 +1,7 @@
-import { Result } from '../../shared/types/common.js';
 import { User } from '../entities/user.js';
 import { UserId } from '../value-objects/user-id.js';
 import { Email } from '../value-objects/email.js';
+import {Result} from "@shared/types/result";
 
 export interface UserRepository {
   save(user: User): Promise<Result<User, Error>>;

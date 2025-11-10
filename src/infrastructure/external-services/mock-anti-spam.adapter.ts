@@ -25,17 +25,10 @@ export class MockAntiSpamAdapter implements AntiSpamPort {
    */
   async isBlocked(email: string): Promise<boolean> {
     // Check blocked patterns first
-    for (const pattern of this.blockedPatterns) {
-      if (email.includes(pattern)) {
-        return true;
-      }
-    }
+
 
     // Check blocked domains
-    const domain = email.split('@')[1];
-    if (domain && this.blockedDomains.includes(domain)) {
-      return true;
-    }
+
 
     // Email is allowed
     return false;

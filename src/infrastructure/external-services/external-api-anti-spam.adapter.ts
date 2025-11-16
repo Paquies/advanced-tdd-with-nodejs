@@ -14,7 +14,7 @@ import { AntiSpamPort } from '../../domain/ports/anti-spam.port.js';
  * This adapter demonstrates how to integrate external services
  * while maintaining clean architecture principles.
  */
-export class RealAntiSpamAdapter implements AntiSpamPort {
+export class ExternalApiAntiSpamAdapter implements AntiSpamPort {
   constructor(private readonly apiKey: string) {}
 
   /**
@@ -46,7 +46,8 @@ export class RealAntiSpamAdapter implements AntiSpamPort {
       });
 
       if (!response.ok) {
-        throw new Error(`API error: ${response.status} ${response.statusText}`);
+       // log.error(`Anti-spam API error: ${response.status} ${response.statusText}`);
+        return false; // Fail open: allow email if API returns error
       }
 
       const data = await response.json() as { blocked: boolean };
@@ -55,7 +56,7 @@ export class RealAntiSpamAdapter implements AntiSpamPort {
       // Error handling strategy: Fail Open (allow email)
       // This means if the anti-spam service is down, we allow the email
       // Alternative: Fail Closed (block email) - more conservative but may reject valid users
-      console.error('Anti-spam check failed:', error);
+      // log.error('Anti-spam check failed:', error);
       return false; // Allow email if service is down
     }
   }

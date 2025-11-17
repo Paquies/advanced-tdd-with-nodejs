@@ -24,7 +24,7 @@
     "nodejs",
     "testing"
   ],
-  "author": "",
+  "author": "Guillaume SAINT ETIENNE , coding assistant: Claude Haiku 4.5",
   "license": "ISC",
   "description": "Advanced TDD with Node.js project using Clean Architecture, DI, and TestContainers",
   "devDependencies": {

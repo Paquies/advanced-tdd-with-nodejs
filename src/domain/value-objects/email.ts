@@ -8,16 +8,18 @@ export class Email extends ValueObject<string> {
   }
 
   constructor(email: string) {
-
-    if (!Email.isValid(email)) {
+    const normalizedEmail = email.trim();
+    if (!Email.isValid(normalizedEmail)) {
       throw new Error(`Invalid email format: ${email}`);
     }
-    super(email);
+    super(normalizedEmail.toLowerCase());
   }
 
   public static isValid(email: string): boolean {
-    return email.length > 0 && email.length <= 254 && !Email.hasConsecutiveDots(email)
-       // &&  Email.EMAIL_REGEX.test(email);
+    return email.length > 0 &&
+           email.length <= 254 && 
+           !Email.hasConsecutiveDots(email) &&
+           Email.EMAIL_REGEX.test(email);
   }
 
   public static create(email: string): Email {
@@ -28,7 +30,7 @@ export class Email extends ValueObject<string> {
     return this.value.split('@')[1];
   }
 
-  public getLocalPart(): string {
+  public getUserPart(): string {
     return this.value.split('@')[0];
   }
 }

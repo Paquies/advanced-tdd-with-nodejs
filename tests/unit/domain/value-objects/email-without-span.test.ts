@@ -17,7 +17,9 @@ class MockAntiSpamAdapter implements AntiSpamPort {
   }
 }
 
-describe('EmailWithoutSpan', () => {
+// AUX ETUDIANtS:  aucun test ne doit rester 'skip' !!!!!!!!!!!!!!!!!!!!!!!!! 🤓
+
+describe.skip('EmailWithoutSpan', () => {
   describe('create', () => {
     it('should create a valid email', async () => {
       const mockAdapter = new MockAntiSpamAdapter();
@@ -50,7 +52,7 @@ describe('EmailWithoutSpan', () => {
     });
   });
 
-  describe('isValid', () => {
+  describe.skip('isValid', () => {
     it('should return true for valid emails', async () => {
       const mockAdapter = new MockAntiSpamAdapter();
       const email = await EmailWithoutSpan.create('test@example.com', mockAdapter);

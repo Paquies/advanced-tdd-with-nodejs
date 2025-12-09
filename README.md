@@ -136,3 +136,6 @@ If you encounter issues after upgrading:
 - Add code coverage reporting
 - Integrate with testing frameworks like Jest or Mocha if needed
 - Add linting and formatting tools (ESLint, Prettier)
+
+## Students
+Néo BOUGIO & Paqui ESTHER
